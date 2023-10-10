@@ -14,6 +14,7 @@ const getAllContacts = async (req, res) => {
 };
 
 const getContactById = async (req, res) => {
+
   const { id: owner } = req.params;
   const result = await Contact.findOne({_id: id, owner});
   if (!result) {
@@ -29,6 +30,7 @@ const addContact = async (req, res) => {
 };
 
 const removeContact = async (req, res) => {
+
   const { id: owner } = req.params;
   const result = await Contact.findByIdAndDelete({_id: id, owner});
   if (!result) {
@@ -38,6 +40,7 @@ const removeContact = async (req, res) => {
 };
 
 const updateContactById = async (req, res) => {
+
   const { id: owner } = req.params;
   const result = await Contact.findByIdAndUpdate({_id: id, owner}, req.body, { new: true });
   if (!result) {

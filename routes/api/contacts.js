@@ -3,7 +3,9 @@ const express = require('express')
 const {authentificate} = require('../../middlewares')
 const ctrlWrapper = require('../../controllers/contacts-controllers')
 const {isValidId}= require("../../middlewares")
+
 const {validateBody}= require('../../helpers')
+
 const {schemas} = require("../../models/contact")
 
 const router = express.Router();
@@ -21,3 +23,4 @@ router.put("/:id", authentificate, validateBody(schemas.addValidationSchema), is
 router.patch("/:id/favorite", authentificate, validateBody(schemas.isFavoriteSchema),  isValidId, ctrlWrapper.updateContactById);
 
 module.exports = router
+

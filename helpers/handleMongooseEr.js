@@ -4,5 +4,5 @@ const handleMongooseError = (error, data, next) => {
     error.status = status;
     next();
   };
-  
+
   module.exports = handleMongooseError;
